@@ -18,7 +18,10 @@ data class Student(
 class DemoController {
 
     @GetMapping("0")
-    fun handle0()="Handle One"
+    fun handle0(): String {
+        log.info("Handler One Called")
+        return "Handle One"
+    }
 
     @GetMapping("1/{id}")
     fun handle1(@PathVariable id : Int) = "id = ${id}"
