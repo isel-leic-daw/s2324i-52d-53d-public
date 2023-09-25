@@ -79,9 +79,45 @@
         - `HttpServletRequest` and `HttpServletResponse` are the base for all request and response interaction.
         - It is possible to use filters (defined according to the servlet interface).
 
-## Lesson 4 - 2022-09-22
+# Lesson 4 - 2022-09-22
 
 - Spring MVC (Model-View-Controller)
     - Intercepting requests via filters and handler interceptors.
         - Differences on the programming models and capabilities.
         - The `HttpServletRequest` attributes bag.
+     
+# Lesson 5 - 2022-09-25
+
+- System architecture for the DAW project
+    - Backend service component and frontend client component.
+    - Responsabilities of each component.
+        - Backend service is responsible to ensure data integrity, namely that all domain rules are correctly enforced.
+            - Data integrity and domain rule enforcement does not depend on the correct behaviour of the frontend application.
+                - However correctness of the frontend application is required to ensure all operations correctly reflect user behavior.
+        - Frontend client component is responsible for the user interaction.
+    - Interaction between frontend applications and backend service done via an HTTP API, provided by the backend service.
+        - HTTP API follows a request-response messaging pattern, at least during the first phase
+            - The communication initiative is always on the API's client, i.e., the frontend application.
+            - The backend service only communicates information to the frontend service in the context of an HTTP response.
+            - Implies polling by the frontend application to check for asynchronous state changes.
+
+- Backend service architecture
+    - A Postgres DBMS, holding all the relevant system state, such as users, games, and boards. 
+    - One or more servers, running a JVM-based application, hosting the HTTP request handling logic, domain logic, and interaction with the DBMS.
+    - A load-balancer, exposing the publicly accessible network endpoint with the HTTP API, and forwarding the requests to one of the servers.
+    - A consequence of this load-balancing based architecture is that the servers need to be mostly stateless.
+        - Do not hold system state, such as users and games.
+        - Only hold configuration and inter-request processing state.
+
+- Server architecture
+    - Use of the Spring framework.
+    - HTTP processing pipeline with intermediaries containing common processing.
+        E.g. authentication token handling, handler argument resolving.
+    - Handlers, defined in controllers, resposible for the specific HTTP request handling.
+    - Services, used by handlers with the domain logic.
+        - Services are independent of the interface being an HTTP API (i.e. they don't know anything about HTTP).
+        - Services are independent of the persistence interface (i.e. they don't know anything about relational databases or JDBC).
+    - Repositories, responsible for data persistence and retrieval.
+
+- Designing the interactions between handlers, services, and repositories.
+    - Defining the transaction boundaries and associated design options.
