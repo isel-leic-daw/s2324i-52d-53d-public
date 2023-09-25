@@ -10,8 +10,16 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 @Component
 class DemoConfigure : WebMvcConfigurer {
 
+    override fun addArgumentResolvers(resolvers: MutableList<HandlerMethodArgumentResolver>) {
+        resolvers.add(ClientIpExampleArgumentResolver())
+    }
+
     override fun addInterceptors(registry: InterceptorRegistry) {
        registry.addInterceptor(ExampleInterceptor())
+    }
+
+    override fun configureMessageConverters(converters: MutableList<HttpMessageConverter<*>>) {
+        converters.add(0,  UriToQrCodeMessageConverter())
     }
 
 }

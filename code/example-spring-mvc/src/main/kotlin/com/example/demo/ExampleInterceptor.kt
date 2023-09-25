@@ -17,6 +17,7 @@ class ExampleInterceptor : HandlerInterceptor {
         response: HttpServletResponse,
         handler: Any): Boolean {
 
+
         logger.info("on preHandle")
         logger.info("Before calling $handler (${handler.javaClass.name})")
         if(handler is HandlerMethod) {

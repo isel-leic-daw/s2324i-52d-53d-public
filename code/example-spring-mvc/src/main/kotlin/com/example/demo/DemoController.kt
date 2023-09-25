@@ -1,12 +1,15 @@
 package com.example.demo
 
 import jakarta.servlet.http.HttpServletRequest
+import net.glxn.qrgen.QRCode
+import net.glxn.qrgen.image.ImageType
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.util.MultiValueMap
 import org.springframework.web.bind.annotation.*
+import java.net.URI
 
 data class Student(
     val name : String,
@@ -48,11 +51,27 @@ class DemoController {
 
     @PostMapping("7")
     //@ResponseStatus(HttpStatus.CREATED)
-    fun handler8(@RequestBody std : Student) = ResponseEntity
+    fun handler7(@RequestBody std : Student) = ResponseEntity
         .status(201)
         .body(std)
 
-    companion object {
-        private val log: Logger = LoggerFactory.getLogger(DemoController::class.java)
-    }
+    @GetMapping(value= ["8"] , produces=["image/png"])
+    fun handle8()= QRCode
+        .from(URI("https://www.example.com").toASCIIString())
+        .to(ImageType.PNG)
+        .withSize(250, 250)
+        .stream()
+        .toByteArray()
+
+    @GetMapping("9")
+    fun handle9() = URI("https://www.example.com")
+
+    @GetMapping("10")
+    fun handle10( request: HttpServletRequest) = "Hello ${request.remoteAddr}"
+
+    @GetMapping("11")
+    fun handle11(clientIp : ClientIp) =  "Hello ${clientIp.ipAddress}"
+companion object {
+    private val log: Logger = LoggerFactory.getLogger(DemoController::class.java)
+}
 }
