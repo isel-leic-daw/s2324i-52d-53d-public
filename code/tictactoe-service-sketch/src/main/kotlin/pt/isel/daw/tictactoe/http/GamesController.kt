@@ -21,8 +21,9 @@ class GamesController (private val gamesService : GamesService) {
         .body("GAME NOT FOUND")
 
     @GetMapping(PathTemplate.GAME_BY_ID)
-    fun getGame(@PathVariable id: UUID): GameOutputModel {
-        TODO("Not yet implemented")
+    fun getGame(@PathVariable id : UUID) :GameOutputModel{
+        val game = gamesService.getById(id)
+        return GameOutputModel(game.id, BoardOutputModel(game.board.toString()), game.playerX, game.playerO)
     }
 
     @PostMapping(PathTemplate.PLAY)

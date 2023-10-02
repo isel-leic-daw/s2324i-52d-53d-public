@@ -1,8 +1,9 @@
-package pt.isel.daw.tictactoe.repository
+package pt.isel.daw.tictactoe.repository.jdbi
 
 import org.jdbi.v3.core.Jdbi
 import org.springframework.stereotype.Component
-import pt.isel.daw.tictactoe.domainmodel.Game
+import pt.isel.daw.tictactoe.domain.Game
+import pt.isel.daw.tictactoe.repository.GamesRepository
 import java.util.*
 
 @Component

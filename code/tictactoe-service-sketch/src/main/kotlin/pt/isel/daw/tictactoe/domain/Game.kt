@@ -1,4 +1,4 @@
-package pt.isel.daw.tictactoe.domainmodel
+package pt.isel.daw.tictactoe.domain
 
 import java.util.UUID
 

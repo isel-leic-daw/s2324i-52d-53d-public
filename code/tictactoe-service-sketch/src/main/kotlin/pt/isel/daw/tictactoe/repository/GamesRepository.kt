@@ -1,6 +1,6 @@
 package pt.isel.daw.tictactoe.repository
 
-import pt.isel.daw.tictactoe.domainmodel.Game
+import pt.isel.daw.tictactoe.domain.Game
 import java.util.*
 
 
