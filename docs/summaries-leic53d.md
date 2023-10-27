@@ -232,16 +232,16 @@
 
 - Project development support
 
-# Lesson 10 - 2022-10-20
+# Lesson 12 - 2022-10-20
 
 - Project development support
 
 
-# Lesson 12 - 2022-10-23
+# Lesson 13 - 2022-10-23
 
 - Phase 1 project presentations.
 
-# Lesson 13 - 2022-10-27
+# Lesson 14 - 2022-10-27
 
 - Phase 1 project presentations.
 
