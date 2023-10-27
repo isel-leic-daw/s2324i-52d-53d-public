@@ -121,3 +121,128 @@
 
 - Designing the interactions between handlers, services, and repositories.
     - Defining the transaction boundaries and associated design options.
+
+# Lesson 6 - 2022-09-29
+
+- Handling exceptions on Spring MVC
+    - The _controller advice_ concept.
+    - Using exceptions vs. return types.
+
+- Testing strategies for Spring MVC based applications.
+    - Unit tests without using the Spring context.
+    - Integration tests using the HTTP interface and an auto-started application.
+    - Tests using the Spring context, with bean overriding or bean mocking.
+        - Property injections.
+
+# Lesson 7 - 2022-10-2
+
+- Web architecture review [https://www.w3.org/TR/webarch/](https://www.w3.org/TR/webarch/)
+    - Web as an information space where the items of interest are _resources_.
+    - Resource identification via _Uniform Resource Identifiers_ (URI).
+        - _Universility_ property of URIs
+    - Interaction between agents and resources via _interaction protocols_, such as HTTP.
+    - Use of formats to represent state, namely resource state.
+        - Media-types as identifiers for formats.
+        - Use of links in representations as a way to relate resources in the information space.
+
+- The HTTP protocol.
+    - Request and response messages.
+    - Message semantics vs. network communication mechanisms.
+        - Message semantics is almost unchaged since HTTP/1.1.
+        - Network communication mechanisms have changed between HTTP/1.1 and HTTP/3.
+            - The evolution has been on a better usage of the network and not on a change to the messaging semantics.
+                - Multiple simultaneous request and responses on the same connection.
+                - Binary encodings of messages.
+    - General method semantics.
+        - Safe methods and idempotent methods.
+    - Specific method semantics.
+        - `GET` semantics.
+        - `PUT` semantics.
+        - `POST` semantics.
+        - How to use RFCs to obtain further information.
+        - Additional reading: ["Should I PUT or should I POST"](https://labs.pedrofelix.org/notes/http/should-i-put-or-should-i-post)
+    - Request headers, response headers and content headers.
+        - Way to provide extra information about the request, the response, or the message content (i.e. payload).
+        - Headers typically contain domain-independent information (e.g. GitHub's rate limit headers).
+
+    - Response message status codes.
+        - How to inform about failure
+            - Status codes. 
+            - Representations
+                - ["RFC 7807 - Problem Details for HTTP APIs"](https://www.rfc-editor.org/rfc/rfc7807)
+                    - Standard members of a _Problem Details_ JSON object.
+                    - Extension members and their relation to the standard `type` field.
+            - Additional reading: 
+                - ["How to fail in HTTP APIs"](https://labs.pedrofelix.org/notes/http/how-to-fail)
+                - ["How to think about HTTP Status Codes"](https://www.mnot.net/blog/2017/05/11/status_codes)
+                - ["Indicating problems in HTTP APIs](https://www.mnot.net/blog/2013/05/15/http_problem)
+
+# Lesson 8 - 2022-10-6
+
+- Characterization of APIs
+    - On one end
+        - Single client.
+        - High coordination between client and HTTP API.
+            - Easy to add and coordinate changes on both the client and the API.
+        - Short-lived: months.
+        - Data-oriented.
+            - Provides data for clients to use on their own ways
+    - On the other end (not really the end)
+        - Multiple clients.
+        - Dificult to coordinate changes on both the clients and the APIs
+        - Long-lived: years, decades.
+        - Journey-oriented (process-oriented).
+            - Exposes functionality for clients to provide very well defined journeys/processes
+
+# Lesson 9 - 2022-10-09
+- Introduction to the use of hypermedia as a way to reduce coupling between the client and a specific HTTP API implementation.
+    - Analysis of a concrete HTTP API.
+
+- Representation design.
+
+    - [JSON Hypertext Application Language](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal) - draft
+        - Links represented in the special `_links` field.
+            - `_links` is an object where the field names are relation types and the values is a link object or an array of link objects.
+            - A link object has: `href`, `templated`, `type`, ...
+        - _Embedded resources_ represented in the special `_embedded` field.
+        - No support for representing actions, i.e., non-safe interactions.
+
+    - [HAL-FORMS](https://rwcbook.github.io/hal-forms/) - draft
+        - Main idea:
+            - HAL representation contains links to resources that represent non-safe interactions.
+                - Obtaining such a resource is a safe-interaction, performed via a `GET` request.
+            - HAL-FORM representation contains information on how to perform a non-safe interaction.
+                - Very similar in objective to HTML forms.
+    
+    - [Siren: a hypermedia specification for representing entities](https://github.com/kevinswiber/siren)
+        - Main ideas:
+            - Including the actions representations in resource representations (on HAL-FORMS, these actions are their own resources).
+            - Grouping the non-link resource properties in a `properties` field.
+            - The concept of `class`.
+    
+    - [JSON:API](https://jsonapi.org/)
+
+
+# Lesson 10 - 2022-10-13
+
+- Representation design
+    - Siren examples
+
+# Lesson 11 - 2022-10-16
+
+- Project development support
+
+# Lesson 10 - 2022-10-20
+
+- Project development support
+
+
+# Lesson 12 - 2022-10-23
+
+- Phase 1 project presentations.
+
+# Lesson 13 - 2022-10-27
+
+- Phase 1 project presentations.
+
+
