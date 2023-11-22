@@ -385,4 +385,35 @@
         - Path template syntax - [https://reactrouter.com/en/main/route/route#dynamic-segments](https://reactrouter.com/en/main/route/route#dynamic-segments).
         - Accessing the path template variables inside componentes via the [`useParams`](https://reactrouter.com/en/main/route/route#dynamic-segments) hook.
 
+# Lesson 20 - 2022-11-22
+- React exercises
+  - Counters and custom hook
+- [React context](https://react.dev/learn/passing-data-deeply-with-context).
+    - Avoid passing properties through all the middle levels.
+    - Providing information to components from the outside without using component properties.
+    - Create context using `createContext`.
+    - Make a context available to child components using the `TheContext.Provider` component.
+    - Use the context using `useContext(TheContext)`.
+    - [Use cases](https://react.dev/learn/passing-data-deeply-with-context#use-cases-for-context).
+- [React reducers](https://react.dev/learn/extracting-state-logic-into-a-reducer).
+    - Reducer: function from State and an Action to a new a new State (`(State, Action) => State`)
+    - Declare a reducer via the `useReducer` function
+    - Providing the initial state and the reducer function.
+    - Receiving the current state and a function to send ("dispatch") actions.
+    - Using context and reducers - ["Scaling Up with Reducer and Context"](https://beta.reactjs.org/learn/scaling-up-with-reducer-and-context)
 
+# Lesson 21 - 2022-11-24
+- React Router
+    - Nested routing.
+        - [Children](https://reactrouter.com/en/main/route/route#children) routes inside a route object.
+        - The [`Outlet`](https://reactrouter.com/en/main/route/route#children) element to render nested routes.
+    - [Loaders](https://reactrouter.com/en/main/route/loader).
+        - [Route loaders](https://reactrouter.com/en/main/route/route#loader).
+            - Loader arguments.
+                - `request` object.
+                - `params` object.
+            - Loader results.
+                - `Response` objects.
+                - Throwing exceptions and `errorElement` fields.
+                - Redirecting via the `redirect` function.
+        - Accessing the _loaded_ data via the `userLoaderData` hook.
