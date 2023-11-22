@@ -358,5 +358,31 @@
         - Effect dependencies.
         - ["You Might Not Need an Effect"](https://react.dev/learn/you-might-not-need-an-effect)
 
+# Lesson 19 - 2022-11-13
+  - Continuing with the previous lesson.
+    - Custom hooks - useFetch
+    - React Exercises
 
+# Lesson 20 - 2022-11-17
+- Client-side routing
+    - Associating paths to UI sections.
+        - Supporting browser native navigation.
+        - Supporting deep-linking and book-marking.
+    - The browser's [history API](https://developer.mozilla.org/en-US/docs/Web/API/History).
+        - The `history` object.
+            - The `back`, `forward`, and `go` functions.
+            - The `pushState` function.
+            - The `popstate` event.
+
+-  The [React Router](https://reactrouter.com/en/main) library.
+    - [Main concepts](https://reactrouter.com/en/main/start/concepts).  
+    - Creating a router using the `createBrowserRouter` function and using the router via the `RouterProvider` component.
+        - Route objects and the `path` and `element` properties.
+    - Client-side navigation.
+        - The `Link` element.
+        - The [`Navigate`](https://reactrouter.com/en/main/components/navigate) element.
+        - The [`useNavigate`](https://reactrouter.com/en/main/hooks/use-navigate) hook.
+    - Routes using path templates.
+        - Path template syntax - [https://reactrouter.com/en/main/route/route#dynamic-segments](https://reactrouter.com/en/main/route/route#dynamic-segments).
+        - Accessing the path template variables inside componentes via the [`useParams`](https://reactrouter.com/en/main/route/route#dynamic-segments) hook.
 
