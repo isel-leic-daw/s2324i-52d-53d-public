@@ -247,7 +247,7 @@
 - Phase 1 project presentations.
 
 
-## Lesson 15 - 2023-11-03
+# Lesson 15 - 2023-11-03
 
 - The Browser as an application execution platform.
     - Document loading.
@@ -320,7 +320,7 @@
         - Union types, type narrowing, literal types, and descriminated union types.
 
         
-## Lesson 16 - 2022-11-06
+# Lesson 16 - 2022-11-06
 
 - The [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) (DOM).
     - Implementing a `createElement` to create a DOM node subtree with both elements and text.
@@ -349,7 +349,7 @@
             - Component mounting, unmounting, and state.    
                 - ["Preserving and Reseting State"](https://react.dev/learn/preserving-and-resetting-state).
 
-## Lesson 17 - 2022-11-10
+# Lesson 17 - 2022-11-10
   
   - Continuing with the previous lesson.
     - Sincronization with the outside world (effects) and the [`useEffect`](https://beta.reactjs.org/apis/react/useEffect#useeffect) hook.
@@ -357,3 +357,63 @@
         - Effect dependencies.
         - ["You Might Not Need an Effect"](https://react.dev/learn/you-might-not-need-an-effect)
 
+# Lesson 18 - 2022-11-15
+  - Continuing with the previous lesson.
+    - Custom hooks - useFetch
+    - React Exercises
+
+# Lesson 19 - 2022-11-17
+- Client-side routing
+    - Associating paths to UI sections.
+        - Supporting browser native navigation.
+        - Supporting deep-linking and book-marking.
+    - The browser's [history API](https://developer.mozilla.org/en-US/docs/Web/API/History).
+        - The `history` object.
+            - The `back`, `forward`, and `go` functions.
+            - The `pushState` function.
+            - The `popstate` event.
+
+-  The [React Router](https://reactrouter.com/en/main) library.
+    - [Main concepts](https://reactrouter.com/en/main/start/concepts).  
+    - Creating a router using the `createBrowserRouter` function and using the router via the `RouterProvider` component.
+        - Route objects and the `path` and `element` properties.
+    - Client-side navigation.
+        - The `Link` element.
+        - The [`Navigate`](https://reactrouter.com/en/main/components/navigate) element.
+        - The [`useNavigate`](https://reactrouter.com/en/main/hooks/use-navigate) hook.
+    - Routes using path templates.
+        - Path template syntax - [https://reactrouter.com/en/main/route/route#dynamic-segments](https://reactrouter.com/en/main/route/route#dynamic-segments).
+        - Accessing the path template variables inside componentes via the [`useParams`](https://reactrouter.com/en/main/route/route#dynamic-segments) hook.
+
+# Lesson 20 - 2022-11-22
+- React exercises
+  - Counters and custom hook
+- [React context](https://react.dev/learn/passing-data-deeply-with-context).
+    - Avoid passing properties through all the middle levels.
+    - Providing information to components from the outside without using component properties.
+    - Create context using `createContext`.
+    - Make a context available to child components using the `TheContext.Provider` component.
+    - Use the context using `useContext(TheContext)`.
+    - [Use cases](https://react.dev/learn/passing-data-deeply-with-context#use-cases-for-context).
+- [React reducers](https://react.dev/learn/extracting-state-logic-into-a-reducer).
+    - Reducer: function from State and an Action to a new a new State (`(State, Action) => State`)
+    - Declare a reducer via the `useReducer` function
+    - Providing the initial state and the reducer function.
+    - Receiving the current state and a function to send ("dispatch") actions.
+    - Using context and reducers - ["Scaling Up with Reducer and Context"](https://beta.reactjs.org/learn/scaling-up-with-reducer-and-context)
+
+# Lesson 21 - 2022-11-24
+- React Router
+    - Nested routing.
+        - [Children](https://reactrouter.com/en/main/route/route#children) routes inside a route object.
+        - The [`Outlet`](https://reactrouter.com/en/main/route/route#children) element to render nested routes.
+    - [Loaders](https://reactrouter.com/en/main/route/loader).
+        - [Route loaders](https://reactrouter.com/en/main/route/route#loader).
+            - Loader arguments.
+                - `request` object.
+                - `params` object.
+            - Loader results.
+                - `Response` objects.
+                - Throwing exceptions and `errorElement` fields.
+                - Redirecting via the `redirect` function.
+        - Accessing the _loaded_ data via the `userLoaderData` hook.
