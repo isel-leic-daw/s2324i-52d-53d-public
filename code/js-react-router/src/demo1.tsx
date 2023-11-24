@@ -31,7 +31,6 @@ import {
             path : "navigate",
             element : < Navigate />
         }
-       
     ]
   )
 
@@ -41,10 +40,8 @@ import {
             <h1>"Home"</h1>
             <p><a href="/path1" >Path1 (using a) </a></p>
             <p><Link to="/path1">Path1</Link> </p>
-            <p><Link to="/path2">Path2</Link> </p>
+            <p><Link to="/students/10">Student 10</Link> </p>
             <p><Link to="/navigate">Navigate</Link> </p>
-          
-            
         </div>
         
         )
@@ -96,14 +93,12 @@ import {
             <div>
                 <h1>Navigate</h1>
                 <input onChange={onChangeHandler} />
-                <button onClick={()=>navigate(text)}>GO</button>
+                <button onClick={()=>navigate(text)} />
             </div>
             
         )
     }
 
-    
-    
 
 
 export function demo(){
