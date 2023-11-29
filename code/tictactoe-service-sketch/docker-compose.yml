@@ -1,0 +1,53 @@
+volumes:
+  data:
+
+version: '3.3'
+services:
+  postgredb:
+    container_name: postgredb
+    hostname: postgredb
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data:/var/lib/postgresql/data
+
+  tictactoe-service-1:
+    container_name: tictactoe-service-1
+    hostname: tictactoe-service-1
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      JDBC_DATABASE_URL: "jdbc:postgresql://postgredb:5432/postgres?user=postgres&password=postgres"
+      port: 8081
+    ports:
+      - 8081:8081
+
+  tictactoe-service-2:
+    container_name: tictactoe-service-2
+    hostname: tictactoe-service-2
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      port: 8082
+      JDBC_DATABASE_URL: "jdbc:postgresql://postgredb:5432/postgres?user=postgres&password=postgres"
+    ports:
+      - 8082:8082
+
+  nginx:
+    container_name: nginx
+    image: nginx
+    ports:
+      - 8080:8080
+    volumes:
+      - ./:/etc/nginx
+      - ./static-content:/static
+    depends_on:
+      - tictactoe-service-1
+      - tictactoe-service-2
