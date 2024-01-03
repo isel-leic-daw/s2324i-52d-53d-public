@@ -417,3 +417,34 @@
                 - Throwing exceptions and `errorElement` fields.
                 - Redirecting via the `redirect` function.
         - Accessing the _loaded_ data via the `userLoaderData` hook.
+     
+# Lesson 22 - 2022-11-29
+- nginx
+  - Load Balancing
+    - Example with two servers - "round-robing"
+  - Static Content
+- Cookies
+  - Attributes
+    - httpOnly
+    - SameSite
+    - secure
+- Project development support   
+     
+# Lesson 23 - 2022-12-06
+- End-to-end testing and the Playwright library and tooling.
+- Project development support
+
+# Lesson 24 - 2022-12-13
+- Server-sent events (SSE).
+  - text/event-stream media type
+  - Spring MVC - SseEmitter
+  - Browser EventSource
+- Project Demonstrations
+     
+# Lesson 25 - 2022-12-15
+
+- Project Demonstrations
+
+# Lesson 26 - 2022-12-20
+
+- Project Demonstrations
